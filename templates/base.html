@@ -1,0 +1,259 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Krishi Karma</title>
+
+        <!-- Bootstrap -->      <link href="{% static 'vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+        <!-- Font Awesome -->   <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+        <!-- NProgress -->      <link href="{% static 'vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+        <!-- iCheck -->         <link href="{% static 'vendors/iCheck/skins/flat/green.css' %}" rel="stylesheet">
+        <!-- bs-pb -->          <link href="{% static 'vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet">
+        <!-- JQVMap -->         <link href="{% static 'vendors/jqvmap/dist/jqvmap.min.css' %}" rel="stylesheet"/>
+        <!-- bs-drp -->         <link href="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+
+        <!-- Custom Theme Style -->
+        <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
+    </head>
+
+    <style>
+        .sidebar-footer a {
+            width: 50%;
+        }
+        .navbar-nav .open .dropdown-menu {
+            width: unset !important;
+        }
+        .nav.side-menu>li>a {
+            margin-bottom: 0px !important;
+        }
+        .preloader {
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            position: fixed;
+            z-index: 99999;
+            background: #fff;
+            opacity: 0.8;
+        }
+        .sk-cube-grid {
+            width: 45px;
+            height: 45px;
+            margin-top: -4%;
+        }
+        .sk-cube-grid .sk-cube {
+            width: 33.33%;
+            height: 33.33%;
+            background-color: #1ABB9C;
+            float: left;
+            -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+        }
+        .sk-cube-grid .sk-cube1 {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; 
+        }
+        .sk-cube-grid .sk-cube2 {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; 
+        }
+        .sk-cube-grid .sk-cube3 {
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s; 
+        }
+        .sk-cube-grid .sk-cube4 {
+            -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; 
+        }
+        .sk-cube-grid .sk-cube5 {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; 
+        }
+        .sk-cube-grid .sk-cube6 {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; 
+        }
+        .sk-cube-grid .sk-cube7 {
+            -webkit-animation-delay: 0.0s;
+            animation-delay: 0.0s; 
+        }
+        .sk-cube-grid .sk-cube8 {
+            -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; 
+        }
+        .sk-cube-grid .sk-cube9 {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; 
+        }
+        @-webkit-keyframes sk-cubeGridScaleDelay {
+            0%, 70%, 100% {
+                -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1); 
+            }
+            35% {
+                -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1); 
+            } 
+        }
+        @keyframes sk-cubeGridScaleDelay {
+            0%, 70%, 100% {
+                -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1); 
+            }
+            35% {
+                -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1); 
+            } 
+        }
+    </style>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="#" class="site_title"><i class="fa fa-pagelines"></i> <span>Krishi Karma!</span></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_pic">
+                                <img src="static/build/images/Sid.jpg" alt="..." class="img-circle profile_img">
+                            </div>
+                            <div class="profile_info">
+                                <span>Welcome,</span>
+                                <h2>Sidharth</h2>
+                            </div>
+                        </div>
+                        <!-- /menu profile quick info -->
+
+                        <br />
+
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>General</h3>
+                                <ul class="nav side-menu">
+                                    <li class="active">
+                                        <a href="#"><i class="fa fa-home"></i> Home </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-list-alt"></i> FAQ </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-thumbs-up"></i> Feedback </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /sidebar menu -->
+
+                        <!-- /menu footer buttons -->
+                        <div class="sidebar-footer hidden-small">
+                            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                        <!-- /menu footer buttons -->
+                    </div>
+                </div>
+
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="nav_profile_pic">
+                                    <a href="javascript:void(0);" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="static/build/images/Sid.jpg" alt="">
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu">
+                                        <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+                
+                <!-- Page content -->
+                {% block content %}
+            
+                {% endblock %}
+                <!-- Page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        SF Advanced Tools by <a href="https://www.facebook.com">SID</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+
+            <!-- Spinner -->
+            <div class="preloader" style="display: none;">
+                <div class="sk-cube-grid" style="position: absolute; top: calc(50% - 3.5px); left: calc(50% - 3.5px);">
+                    <div class="sk-cube sk-cube1"></div>
+                    <div class="sk-cube sk-cube2"></div>
+                    <div class="sk-cube sk-cube3"></div>
+                    <div class="sk-cube sk-cube4"></div>
+                    <div class="sk-cube sk-cube5"></div>
+                    <div class="sk-cube sk-cube6"></div>
+                    <div class="sk-cube sk-cube7"></div>
+                    <div class="sk-cube sk-cube8"></div>
+                    <div class="sk-cube sk-cube9"></div>
+                </div>
+            </div>
+            <!-- Spinner -->
+        </div>
+        <!-- jQuery -->     <script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
+        <!-- Bootstrap -->  <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        <!-- NProgress -->  <script src="{% static 'vendors/nprogress/nprogress.js' %}"></script>
+        <!-- Chart.js -->   <script src="{% static 'vendors/Chart.js/dist/Chart.min.js' %}"></script>
+        <!-- gauge.js -->   <script src="{% static 'vendors/gauge.js/dist/gauge.min.js' %}"></script>
+        <!-- bs-pb -->      <script src="{% static 'vendors/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
+        <!-- iCheck -->     <script src="{% static 'vendors/iCheck/icheck.min.js' %}"></script>
+        <!-- Skycons -->    <script src="{% static 'vendors/skycons/skycons.js' %}"></script>
+
+        <!-- Flot -->
+        <script src="{% static 'vendors/Flot/jquery.flot.js' %}"></script>
+        <script src="{% static 'vendors/Flot/jquery.flot.pie.js' %}"></script>
+        <script src="{% static 'vendors/Flot/jquery.flot.time.js' %}"></script>
+        <script src="{% static 'vendors/Flot/jquery.flot.stack.js' %}"></script>
+        <script src="{% static 'vendors/Flot/jquery.flot.resize.js' %}"></script>
+
+        <!-- Flot plugins -->
+        <script src="{% static 'vendors/flot.orderbars/js/jquery.flot.orderBars.js' %}"></script>
+        <script src="{% static 'vendors/flot-spline/js/jquery.flot.spline.min.js' %}"></script>
+        <script src="{% static 'vendors/flot.curvedlines/curvedLines.js' %}"></script>
+
+        <!-- DateJS -->     <script src="{% static 'vendors/DateJS/build/date.js' %}"></script>
+
+        <!-- JQVMap -->
+        <script src="{% static 'vendors/jqvmap/dist/jquery.vmap.js' %}"></script>
+        <script src="{% static 'vendors/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+        <script src="{% static 'vendors/jqvmap/examples/js/jquery.vmap.sampledata.js' %}"></script>
+
+        <!-- bootstrap-daterangepicker -->
+        <script src="{% static 'vendors/moment/min/moment.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="{% static 'build/js/custom.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Crops</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            {% for crop in crops %}
+                                <div class="col-md-4">
+                                    <div class="thumbnail" style="height: 250px;">
+                                        <div class="image view view-first" style="height: 192px;">
+                                            <img style="width: 100%; display: block;" src="{{ crop.image_url }}" alt="image" />
+                                            <div class="mask">
+                                                <p>{{ crop.name }}</p>
+                                                <div class="tools tools-bottom" style="margin: 118px 0 0;">
+                                                    <a href="#"><i class="fa fa-link"></i></a>
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="caption" style="text-align: center; font-size: large; font-weight: 700;">
+                                            <p>{{ crop.name }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
