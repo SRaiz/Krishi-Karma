@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'Krishi_Karma.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'krishi-karma',
-        'USER': 'postgres',
-        'PASSWORD': 'tweety_336600',
-        'HOST': 'localhost'
-    }
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST')
+    },
 }
 
 # Password validation

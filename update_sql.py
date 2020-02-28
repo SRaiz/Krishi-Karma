@@ -1,4 +1,5 @@
 import csv
+import os
 
 import psycopg2
 
@@ -11,6 +12,13 @@ with open(data_filename, 'rt') as csv_file:
     reader = csv.reader(csv_file)
     next(reader)    # Removed the 1st line which is header
 
-    with psycopg2.connect( user='postgres', password='tweety_336600', host="localhost", port="5432", database="krishi-karma" ) as conn:
-        cursor = conn.cursor()
-        cursor.executemany(SQL, reader)
+    conn = psycopg2.connect(
+        user = os.environ.get('DB_USER'),
+        password = os.environ.get('DB_PASSWORD'),
+        host = os.environ.get('DB_HOST'),
+        port = '5432', 
+        database = os.environ.get('DB_NAME')
+    )
+
+    cursor = conn.cursor()
+    cursor.executemany(SQL, reader)
