@@ -16,7 +16,7 @@ with open(data_filename, 'rt') as csv_file:
         user = os.environ.get('DB_USER'),
         password = os.environ.get('DB_PASSWORD'),
         host = os.environ.get('DB_HOST'),
-        port = '5432', 
+        port = '5432',
         database = os.environ.get('DB_NAME')
     )
 
