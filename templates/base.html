@@ -17,6 +17,21 @@
 
         <!-- Custom Theme Style -->
         <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
+        <style>
+            .label-align {
+                text-align: right;
+            }
+            .col-form-label {
+                padding-top: calc(.375rem + 1px);
+                padding-bottom: calc(.375rem + 1px);
+                margin-bottom: 0;
+                font-size: inherit;
+                line-height: 1.5;
+            }
+            .form_wizard .stepContainer {
+                overflow-x: unset !important;
+            }
+        </style>
     </head>
 
     <style>
@@ -191,7 +206,7 @@
                 
                 <!-- Page content -->
                 {% block content %}
-            
+                    
                 {% endblock %}
                 <!-- Page content -->
 
@@ -253,7 +268,14 @@
         <script src="{% static 'vendors/moment/min/moment.min.js' %}"></script>
         <script src="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
 
+        <!-- jQuery Smart Wizard -->
+        <script src="{% static 'vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js' %}"></script>
+
+        <!-- Auto-complete -->
+        <script src="{% static 'vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js' %}"></script>
+
         <!-- Custom Theme Scripts -->
         <script src="{% static 'build/js/custom.min.js' %}"></script>
+        <script src="{% static 'krishijs/krishikarma.js' %}"></script>
     </body>
 </html>
