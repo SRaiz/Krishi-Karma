@@ -39,8 +39,10 @@ def pg_load_table(file_path, table_name, dbname, host, port, user, pwd):
         sys.exit(1)
 
 pg_load_table(
-    '/Users/sidharthraizada/Krishi-Karma/Final_Crop_Yield_Karnataka.csv',
-    'public.crops_yield',
+    # '/Users/sidharthraizada/Krishi-Karma/Final_Crop_Yield_Karnataka.csv',
+    # 'public.crops_yield',
+    '/Users/sidharthraizada/Krishi-Karma/crops.csv',
+    'public.crops_crop',
     os.environ.get('DB_NAME'),
     os.environ.get('DB_HOST'),
     os.environ.get('DB_PORT'),
