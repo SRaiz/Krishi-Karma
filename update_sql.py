@@ -42,7 +42,7 @@ pg_load_table(
     'public.crops_yield',
     os.environ.get('DB_NAME'),
     os.environ.get('DB_HOST'),
-    '5432',
+    os.environ.get('DB_PORT'),
     os.environ.get('DB_USER'),
     os.environ.get('DB_PASSWORD')
 )
