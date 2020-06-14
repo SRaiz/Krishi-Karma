@@ -63,7 +63,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="state-append">State <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="select2_single form-control" tabindex="-1" onchange="filterDistricts(this)">
+                                            <select id="selectedState" class="select2_single form-control" tabindex="-1" onchange="filterDistricts(this)">
                                                 <option>Choose State</option>
                                                 {% for state in states %}
                                                     <option value="{{ state }}">{{ state }}</option>
@@ -79,7 +79,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="state-append">District <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select id="district-select" class="select2_single form-control" tabindex="-1">
+                                            <select id="district-select" class="select2_single form-control" tabindex="-1" onchange="filterCrops(this)">
                                                 <option>Choose District</option>
                                             </select>
                                         </div>
@@ -105,9 +105,9 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <div class="row">
+                        <div class="row" id="all_crops">
                             {% for crop in crops %}
-                                <div class="col-md-4">
+                                <div class="col-md-4" id="{{ crop.name }}">
                                     <div class="thumbnail" style="height: 250px;">
                                         <div class="image view view-first" style="height: 192px;">
                                             <img style="width: 100%; display: block;" src="{{ crop.image_url }}" alt="image" />
