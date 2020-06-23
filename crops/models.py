@@ -18,3 +18,5 @@ class Yield(models.Model):
     mean_rainfall = models.FloatField()
     annual_rainfall = models.FloatField()
     production = models.FloatField()
+    yields = models.FloatField()
+    yield_class = models.CharField( max_length = 80 )
