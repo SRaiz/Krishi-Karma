@@ -38,8 +38,8 @@ def test_registry(self):
         algorithm_name = "random forest"
         algorithm_status = "production"
         algorithm_version = "0.0.1"
-        algorithm_owner = "Piotr"
-        algorithm_description = "Random Forest with simple pre- and post-processing"
+        algorithm_owner = "Sidharth"
+        algorithm_description = "Random Forest with simple pre and post-processing"
         algorithm_code = inspect.getsource(RandomForestClassifier)
         # add to registry
         registry.add_algorithm(endpoint_name, algorithm_object, algorithm_name,
