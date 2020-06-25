@@ -18,7 +18,6 @@ from apps.ml.registry import MLRegistry
 from apps.ml.cropsyield_classifier.random_forest import RandomForestClassifier
 
 
-
 try:
     registry = MLRegistry() # create ML registry
     # Random Forest classifier
