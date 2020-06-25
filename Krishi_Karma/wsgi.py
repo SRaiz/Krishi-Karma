@@ -7,7 +7,6 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
-# ML registry
 import inspect
 import os
 
@@ -17,7 +16,6 @@ from apps.ml.cropsyield_classifier.random_forest import RandomForestClassifier
 from apps.ml.registry import MLRegistry
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Krishi_Karma.settings')
-
 application = get_wsgi_application()
 
 
