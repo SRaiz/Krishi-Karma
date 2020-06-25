@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from apps.endpoints.urls import urlpatterns as endpoints_urlpatterns
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('crops.urls'))
 ]
+
+urlpatterns += endpoints_urlpatterns
