@@ -2,6 +2,7 @@ import inspect
 
 from django.test import TestCase
 
+from apps.ml.cropsyield_classifier.extra_trees import ExtraTreesClassifier
 from apps.ml.cropsyield_classifier.random_forest import RandomForestClassifier
 from apps.ml.registry import MLRegistry
 
@@ -29,7 +30,7 @@ class MLTests(TestCase):
         self.assertEqual('<=50K', response['label'])
 
 
-def test_registry(self):
+    def test_registry(self):
         registry = MLRegistry()
         self.assertEqual(len(registry.endpoints), 0)
         endpoint_name = "cropsyield_classifier"
@@ -46,3 +47,26 @@ def test_registry(self):
                     algorithm_description, algorithm_code)
         # there should be one endpoint available
         self.assertEqual(len(registry.endpoints), 1)
+
+
+    # add new test method to MLTests class
+    def test_et_algorithm(self):
+        input_data = {
+            "state_name": "Karnataka",
+            "district_name": "Bagalkot",
+            "crop_year": 2000,
+            "season": "Kharif",
+            "crop": "Bajra",
+            "area": 41232.0,
+            "min_rainfall": 0.0,
+            "max_rainfall": 173.079,
+            "mean_rainfall": 71.463,
+            "annual_rainfall": 857.558,
+            "production": 41300.0,
+            "yield": 1.002
+        }
+        my_alg = ExtraTreesClassifier()
+        response = my_alg.compute_prediction(input_data)
+        self.assertEqual('OK', response['status'])
+        self.assertTrue('label' in response)
+        self.assertEqual('<=50K', response['label'])
