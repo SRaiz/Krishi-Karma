@@ -16,7 +16,7 @@ class RandomForestClassifier:
         # fill missing values
         input_data.fillna(self.values_fill_missing)
         # convert categoricals
-        for column in [ "key", "state_name", "district_name", "occupation", "season", "crop"]:
+        for column in [ "state_name", "district_name", "season", "crop"]:
             categorical_convert = self.encoders[column]
             input_data[column] = categorical_convert.transform(input_data[column])
 

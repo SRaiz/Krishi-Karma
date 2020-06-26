@@ -9,7 +9,6 @@ from apps.ml.registry import MLRegistry
 class MLTests(TestCase):
     def test_rf_algorithm(self):
         input_data = {
-            "key": "Karnataka-Bagalkot-Bajra-2000-Kharif",
             "state_name": "Karnataka",
             "district_name": "Bagalkot",
             "crop_year": 2000,
