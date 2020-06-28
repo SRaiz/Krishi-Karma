@@ -23,14 +23,16 @@ class ExtraTreesClassifier:
 
 
     def predict(self, input_data):
-        return self.model.predict_proba(input_data)
+        return self.model.predict(input_data)
 
 
     def postprocessing(self, input_data):
-        label = "Poor"
-        if input_data[1] > 0.5:
-            label = "Good"
-        return {"probability": input_data[1], "label": label, "status": "OK"}
+        label = input_data[0]
+        return {
+            "label": label, 
+            "status": "OK",
+            "response": "The crop yield is "+label
+        }
 
 
     def compute_prediction(self, input_data):
