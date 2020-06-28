@@ -27,9 +27,9 @@ class ExtraTreesClassifier:
 
 
     def postprocessing(self, input_data):
-        label = "<=50K"
+        label = "Poor"
         if input_data[1] > 0.5:
-            label = ">50K"
+            label = "Good"
         return {"probability": input_data[1], "label": label, "status": "OK"}
 
 

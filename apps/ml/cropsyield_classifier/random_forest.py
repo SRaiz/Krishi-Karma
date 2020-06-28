@@ -33,7 +33,7 @@ class RandomForestClassifier:
     def postprocessing(self, input_data):
         label = "Poor"
         if input_data[1] > 0.5:
-            label = ">50K"
+            label = "Good"
         return {
             "probability": input_data[1], 
             "label": label, 
@@ -48,12 +48,6 @@ class RandomForestClassifier:
             prediction = self.postprocessing(prediction)
         
         except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            print(exc_tb.tb_lineno)
-            print('+++++++++++++++++++++++++++++++')
-            print()
-            print(str(e))
             return {
                 "status": "Error", 
                 "message": str(e)
