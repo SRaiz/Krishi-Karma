@@ -95,7 +95,7 @@ function predictValues () {
             crop: crop,
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         },
-        success: function (districts) {
+        success: function (yeild_status) {
             
         }
     });
