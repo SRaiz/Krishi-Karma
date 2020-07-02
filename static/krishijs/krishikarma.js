@@ -1,6 +1,25 @@
 /*
     This js file is used to call the views.py method from index.html.
 */
+
+$(document).ready(function() {
+    $('.actionBar .buttonFinish')[0].innerText = 'Predict';
+    $(".actionBar .buttonFinish").removeClass("buttonFinish buttonDisabled btn btn-default").addClass("buttonFinish buttonDisabled btn btn-success");
+    $(".actionBar .buttonNext").removeClass("btn-success" ).addClass("btn-warning");
+
+    //-- Predict Values by passing through a function --//
+    $('.actionBar .buttonFinish').click(function(){
+        var stateValue = $('#selectedState').val();
+        var districtValue = $('#district-selec').val();
+        var yearValue = $('#year-select').val();
+        var seasonValue = $('#season-select').val();
+        var landAreaValue = $('#land-area').val();
+        var cropValue = $('#selected-crop').val;
+        
+        predictValues( stateValue, districtValue, yearValue, seasonValue, landAreaValue, cropValue );
+    })
+});
+
 function filterDistricts(selectedState) {
     var state = selectedState.value;
     //-- Pass this selected state value to the views.py method using ajax --//
@@ -61,4 +80,34 @@ function filterCrops(selectedDistrict) {
             }
         }
     });
+}
+
+function predictValues ( stateValue, districtValue, yearValue, seasonValue, landAreaValue, cropValue ) {
+    //-- Pass this selected values to the views.py method using ajax --//
+    $.ajax({
+        type: "POST",
+        url: "/home/predict",
+        data: {
+            state: stateValue,
+            district: districtValue,
+            year: yearValue,
+            season: seasonValue,
+            land: landAreaValue,
+            crop: cropValue,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function (districts) {
+            
+        }
+    });
+}
+
+function setSelectedCrop(selectedCrop) {
+    $('#selected-crop').val(selectedCrop);
+    new PNotify({
+        title: 'You Selected '+selectedCrop,
+        type: 'success',
+        styling: 'bootstrap3'
+    });
+    $('.actionBar .buttonFinish').removeClass("buttonFinish buttonDisabled btn btn-default").addClass("buttonFinish btn btn-success");
 }

@@ -17,7 +17,7 @@
                     </div>
                     <div class="x_content">
                         <!-- Smart Wizard -->
-                        <p>Please select the state, district and crop to get the prediction.</p>
+                        <p>Please select the necessities below to get the prediction.</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
                             <ul class="wizard_steps">
                                 <li>
@@ -25,7 +25,7 @@
                                         <span class="step_no">1</span>
                                         <span class="step_descr">
                                             State<br />
-                                            <small>Start by selecting a state</small>
+                                            <small>Start By Selecting State</small>
                                         </span>
                                     </a>
                                 </li>
@@ -34,7 +34,7 @@
                                         <span class="step_no">2</span>
                                             <span class="step_descr">
                                             District<br />
-                                            <small>Select the district</small>
+                                            <small>Select The district</small>
                                         </span>
                                     </a>
                                 </li>
@@ -42,17 +42,35 @@
                                     <a href="#step-3">
                                         <span class="step_no">3</span>
                                             <span class="step_descr">
-                                            Crop<br />
-                                            <small>Select the crop</small>
+                                            Prediction Year<br />
+                                            <small>Select The Year</small>
                                         </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#step-4">
                                         <span class="step_no">4</span>
-                                        <span class="step_descr">
-                                        Prediction<br />
-                                        <small>Predict the values!</small>
+                                            <span class="step_descr">
+                                            Season<br />
+                                            <small>Select The Season</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-5">
+                                        <span class="step_no">5</span>
+                                            <span class="step_descr">
+                                            Area<br />
+                                            <small>Provide Land Area (Ha)</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-6">
+                                        <span class="step_no">6</span>
+                                            <span class="step_descr">
+                                            Crop<br />
+                                            <small>Select The Crop</small>
                                         </span>
                                     </a>
                                 </li>
@@ -86,6 +104,58 @@
                                     </div>
                                 </form>
                             </div>
+                            <div id="step-3">
+                                <form class="form-horizontal form-label-left">  {% csrf_token %}
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-md-5 col-sm-5 label-align" for="state-append">Year <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-3 col-sm-3 ">
+                                            <select id="year-select" class="select2_single form-control" tabindex="-1">
+                                                <option>Choose Year</option>
+                                                <option>2000</option>
+                                                <option>2001</option>
+                                                <option>2002</option>
+                                                <option>2003</option>
+                                                <option>2004</option>
+                                                <option>2005</option>
+                                                <option>2006</option>
+                                                <option>2007</option>
+                                                <option>2008</option>
+                                                <option>2009</option>
+                                                <option>2010</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="step-4">
+                                <form class="form-horizontal form-label-left">  {% csrf_token %}
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="state-append">Season <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <select id="season-select" class="select2_single form-control" tabindex="-1">
+                                                <option>Choose Season</option>
+                                                <option>Kharif</option>
+                                                <option>Rabi</option>
+                                                <option>Summer</option>
+                                                <option>Whole Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="step-5">
+                                <form class="form-horizontal form-label-left">  {% csrf_token %}
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="land-area">Area(In Ha)<span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <input type="text" id="land-area" required="required" class="form-control ">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <!-- End SmartWizard Content -->
                     </div>
@@ -110,14 +180,7 @@
                                 <div class="col-md-4" id="{{ crop.name }}">
                                     <div class="thumbnail" style="height: 250px;">
                                         <div class="image view view-first" style="height: 192px;">
-                                            <img style="width: 100%; display: block;" src="{{ crop.image_url }}" alt="image" />
-                                            <div class="mask">
-                                                <p>{{ crop.name }}</p>
-                                                <div class="tools tools-bottom" style="margin: 118px 0 0;">
-                                                    <a href="#"><i class="fa fa-link"></i></a>
-                                                    <a href="#"><i class="fa fa-pencil"></i></a>
-                                                </div>
-                                            </div>
+                                            <img id="{{ crop.name }}" class="crop-image" style="width: 100%; display: block; cursor: pointer;" src="{{ crop.image_url }}" alt="image" onclick="setSelectedCrop(this.id)"/>
                                         </div>
                                         <div class="caption" style="text-align: center; font-size: large; font-weight: 700;">
                                             <p>{{ crop.name }}</p>
@@ -126,6 +189,7 @@
                                 </div>
                             {% endfor %}
                         </div>
+                        <input type="text" id="selected-crop" style="display:none;" >
                     </div>
                 </div>
             </div>

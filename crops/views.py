@@ -50,3 +50,8 @@ def filter_crops(request):
         string_to_send = all_crops_string + '====' + crops_string
         
         return HttpResponse(string_to_send);
+
+
+def predict_yield(request):
+    if request.method == 'POST':
+        state = request.POST['state']

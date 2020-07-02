@@ -15,6 +15,11 @@
         <!-- JQVMap -->         <link href="{% static 'vendors/jqvmap/dist/jqvmap.min.css' %}" rel="stylesheet"/>
         <!-- bs-drp -->         <link href="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
 
+        <!-- PNotify -->
+        <link href="{% static 'vendors/pnotify/dist/pnotify.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/pnotify/dist/pnotify.buttons.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/pnotify/dist/pnotify.nonblock.css' %}" rel="stylesheet">
+
         <!-- Custom Theme Style -->
         <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
         <style>
@@ -124,13 +129,13 @@
         }
     </style>
 
-    <body class="nav-md">
+    <body class="nav-md footer_fixed">
         <div class="container body">
             <div class="main_container">
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
-                            <a href="#" class="site_title"><i class="fa fa-pagelines"></i> <span>Krishi Karma!</span></a>
+                            <a href="#" class="site_title"><i class="fa fa-pagelines"></i> <span>ICYP</span></a>
                         </div>
 
                         <div class="clearfix"></div>
@@ -183,10 +188,10 @@
 
                         <!-- /menu footer buttons -->
                         <div class="sidebar-footer hidden-small">
-                            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <a data-toggle="tooltip" data-placement="top" title="#" style="padding: 7px 0 22px !important;">
                                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                             </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="#" style="padding: 7px 0 22px !important;">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                             </a>
                         </div>
@@ -225,8 +230,8 @@
 
                 <!-- footer content -->
                 <footer>
-                    <div class="pull-right">
-                        SF Advanced Tools by <a href="https://www.facebook.com">SID</a>
+                    <div class="pull-right" style="font-weight: bolder; font-style: italic;">
+                        INTELLIGENT CROP YIELD PREDICTOR (ICYP) BY <a href="https://www.facebook.com">SID</a>
                     </div>
                     <div class="clearfix"></div>
                 </footer>
@@ -290,5 +295,10 @@
         <!-- Custom Theme Scripts -->
         <script src="{% static 'build/js/custom.min.js' %}"></script>
         <script src="{% static 'krishijs/krishikarma.js' %}"></script>
+
+        <!-- PNotify -->
+        <script src="{% static 'vendors/pnotify/dist/pnotify.js' %}"></script>
+        <script src="{% static 'vendors/pnotify/dist/pnotify.buttons.js' %}"></script>
+        <script src="{% static 'vendors/pnotify/dist/pnotify.nonblock.js' %}"></script>
     </body>
 </html>

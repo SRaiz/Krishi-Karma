@@ -32,8 +32,16 @@ class RandomForestClassifier:
 
     def postprocessing(self, input_data):
         label = input_data[0]
+        if label == 'P':
+            label = 'Poor'
+        elif label == 'G':
+            label = 'Good'
+        elif label == 'V':
+            label = 'Very Good'
+        else:
+            label = 'Excellent'
         return {
-            "label": label, 
+            "label": label,
             "status": "OK",
             "response": "The crop yield is "+label
         }
