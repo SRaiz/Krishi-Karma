@@ -9,14 +9,7 @@ $(document).ready(function() {
 
     //-- Predict Values by passing through a function --//
     $('.actionBar .buttonFinish').click(function(){
-        var stateValue = $('#selectedState').val();
-        var districtValue = $('#district-selec').val();
-        var yearValue = $('#year-select').val();
-        var seasonValue = $('#season-select').val();
-        var landAreaValue = $('#land-area').val();
-        var cropValue = $('#selected-crop').val;
-        
-        predictValues( stateValue, districtValue, yearValue, seasonValue, landAreaValue, cropValue );
+        predictValues();
     })
 });
 
@@ -82,18 +75,24 @@ function filterCrops(selectedDistrict) {
     });
 }
 
-function predictValues ( stateValue, districtValue, yearValue, seasonValue, landAreaValue, cropValue ) {
+function predictValues () {
+    var state = $('#selectedState').val();
+    var district = $('#district-select').val();
+    var year = $('#year-select').val();
+    var season = $('#season-select').val();
+    var landArea = $('#land-area').val();
+    var crop = $('#selected-crop').val();
     //-- Pass this selected values to the views.py method using ajax --//
     $.ajax({
         type: "POST",
         url: "/home/predict",
         data: {
-            state: stateValue,
-            district: districtValue,
-            year: yearValue,
-            season: seasonValue,
-            land: landAreaValue,
-            crop: cropValue,
+            state: state,
+            district: district,
+            year: year,
+            season: season,
+            landArea: landArea,
+            crop: crop,
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         },
         success: function (districts) {

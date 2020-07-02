@@ -54,4 +54,18 @@ def filter_crops(request):
 
 def predict_yield(request):
     if request.method == 'POST':
-        state = request.POST['state']
+        state = request.POST.get('state', False);
+        district = request.POST.get('district', False);
+        year = request.POST.get('year', False);
+        season = request.POST.get('season', False);
+        landArea = request.POST.get('landArea', False);
+        crop = request.POST.get('crop', False);
+
+        # Filter the dataframe on basis of district state and year to get the rainfall data
+        filtered_df = yield_df[ (yield_df.state_name == state) & (yield_df.district_name == district) & (yield_df.crop_year == int(year)) ]
+
+        minimum_rainfall = filtered_df['min_rainfall'].unique()
+        maximum_rainfall = filtered_df['max_rainfall'].unique()
+        average_rainfall = filtered_df['mean_rainfall'].unique()
+        total_annual_rainfall = filtered_df['annual_rainfall'].unique()
+        print(minimum_rainfall, maximum_rainfall, average_rainfall, total_annual_rainfall)
