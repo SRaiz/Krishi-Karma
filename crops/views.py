@@ -10,7 +10,6 @@ crops = Crop.objects.all()
 yields = Yield.objects.all()
 yield_df = pd.DataFrame.from_records(yields.values())
 crops_df = pd.DataFrame.from_records(crops.values())
-prediction_model_ready = False
 
     
 def index(request):
