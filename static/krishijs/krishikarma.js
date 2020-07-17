@@ -10,7 +10,7 @@ $(document).ready(function() {
     //-- Predict Values by passing through a function --//
     $('.actionBar .buttonFinish').click(function(){
         predictValues();
-    })
+    });
 });
 
 function filterDistricts(selectedState) {
@@ -24,7 +24,7 @@ function filterDistricts(selectedState) {
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         },
         success: function (districts) {
-            for(district of districts.split(',')) {
+            for(var district of districts.split(',')) {
                 $('#district-select').append(
                     new Option( text = district, value = district )
                 );
@@ -61,7 +61,7 @@ function filterCrops(selectedDistrict) {
             
             allCropsList.forEach(crop => {
                 if ( desiredCrops.indexOf(crop) === -1 ) {
-                    cropsToHide.push(crop)
+                    cropsToHide.push(crop);
                 }
             });
 
@@ -96,7 +96,7 @@ function predictValues () {
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         },
         success: function (yeild_status) {
-            
+            alert(yeild_status);
         }
     });
 }
